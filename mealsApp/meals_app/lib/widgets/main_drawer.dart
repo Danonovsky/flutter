@@ -1,7 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({Key? key}) : super(key: key);
+
+  Widget buildListTile(String title, IconData icon, Function tapHandler) {
+    return ListTile(
+      leading: Icon(
+        icon,
+        size: 26,
+      ),
+      title: Text(
+        title,
+        style: const TextStyle(
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+      onTap: () {
+        tapHandler();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,47 +47,14 @@ class MainDrawer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const buildListTile(
-            title: 'Meals',
-            icon: Icons.restaurant,
-          ),
-          const buildListTile(
-            title: 'Filters',
-            icon: Icons.settings,
-          ),
+          buildListTile('Meals', Icons.restaurant, () {
+            Navigator.of(context).pushReplacementNamed('/');
+          }),
+          buildListTile('Filters', Icons.settings, () {
+            Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+          }),
         ],
       ),
-    );
-  }
-}
-
-class buildListTile extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  const buildListTile({
-    Key? key,
-    required this.title,
-    required this.icon,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        size: 26,
-      ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontFamily: 'RobotoCondensed',
-          fontSize: 24,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-      onTap: () {
-        //
-      },
     );
   }
 }
