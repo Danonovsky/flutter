@@ -1,10 +1,9 @@
-import 'package:first_app/styled_text.dart';
 import 'package:flutter/material.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key, required this.colors})
+  const GradientContainer({super.key, required this.colors});
   
-  const GradientContainer.purple({super.key})
+   const GradientContainer.purple({super.key})
     : colors = const [Colors.deepPurple, Colors.deepPurpleAccent];
 
   final List<Color> colors;
@@ -17,8 +16,8 @@ class GradientContainer extends StatelessWidget {
           begin: Alignment.topLeft,
         ),
       ),
-      child: const Center(
-        child: Image.asset('name')
+      child: Center(
+        child: Image.asset('dice-1'),
       ),
     );
   }
