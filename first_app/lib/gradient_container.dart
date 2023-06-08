@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key, required this.colors});
-  
-   const GradientContainer.purple({super.key})
-    : colors = const [Colors.deepPurple, Colors.deepPurpleAccent];
+
+  const GradientContainer.purple({super.key})
+      : colors = const [Colors.deepPurple, Colors.deepPurpleAccent];
 
   final List<Color> colors;
   @override
@@ -17,7 +17,10 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Image.asset('assets/images/dice-1.png', width: 200,),
+        child: Image.asset(
+          'assets/images/dice-1.png',
+          width: 200,
+        ),
       ),
     );
   }
